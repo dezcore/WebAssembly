@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  webassembly:
+    image: webassembly-env
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    working_dir: /Webassembly
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - webassembly:/Webassembly
+
+volumes:
+  webassembly:
+
+#emcc hello.c -s WASM=1 -o hello.html
